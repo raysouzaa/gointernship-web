@@ -42,22 +42,22 @@ export const AuthProvider: React.FC = ({ children }) => {
   const signIn = useCallback(async ({ email, password }) => {
     // const reponse = await api.post('sessions', { email, password });
     // const { token, user } = reponse.data;
-    // localStorage.setItem('@GoBarber:token', token);
-    // localStorage.setItem('@GoBarber:user', JSON.stringify(user));
+    // localStorage.setItem('@GoInternship:token', token);
+    // localStorage.setItem('@GoInternship:user', JSON.stringify(user));
     // api.defaults.headers.authorization = `Bearer ${token}`;
     // setData({ token, user });
   }, []);
 
   const signOut = useCallback(() => {
-    localStorage.removeItem('@GoBarber:token');
-    localStorage.removeItem('@GoBarber:user');
+    localStorage.removeItem('@GoInternship:token');
+    localStorage.removeItem('@GoInternship:user');
 
     setData({} as AuthState);
   }, []);
 
   const updateUser = useCallback(
     (user: User) => {
-      localStorage.setItem('@GoBarber:user', JSON.stringify(user));
+      localStorage.setItem('@GoInternship:user', JSON.stringify(user));
 
       setData({
         token: data.token,
