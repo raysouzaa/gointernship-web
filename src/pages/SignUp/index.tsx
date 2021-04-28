@@ -1,10 +1,10 @@
 import React, { useCallback, useRef } from 'react';
-import { FiArrowLeft, FiUser, FiMail, FiLock } from 'react-icons/fi';
+import { FiArrowLeft, FiUser, FiMail, FiLock, FiPhone } from 'react-icons/fi';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
 
-import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 import logoImg from '../../assets/logo.svg';
 
 import Input from '../../components/Input';
@@ -14,7 +14,6 @@ import { Container, Content, Background } from './styles';
 import getValidationsErrors from '../../utils/getValidationErrors';
 
 const SignUp: React.FC = () => {
-  const history = useHistory();
   const formRef = useRef<FormHandles>(null);
 
   const handleSubmit = useCallback(async (data: object) => {
@@ -26,6 +25,7 @@ const SignUp: React.FC = () => {
         email: Yup.string()
           .required('E-mail obrigatório!')
           .email('Digite um e-mail válido!'),
+        phone: Yup.string().required('Numero de telefone obrigatório!'),
         password: Yup.string().min(6, 'No mínimo 6 dígitos'),
       });
       await schema.validate(data, {
@@ -49,6 +49,7 @@ const SignUp: React.FC = () => {
 
           <Input name="name" icon={FiUser} placeholder="Nome" />
           <Input name="email" icon={FiMail} placeholder="E-mail" />
+          <Input name="phone" icon={FiPhone} placeholder="Telefone" />
           <Input
             name="password"
             icon={FiLock}
@@ -59,10 +60,12 @@ const SignUp: React.FC = () => {
           <Button type="submit">Cadastrar</Button>
         </Form>
 
-        <a href="login">
-          <FiArrowLeft />
-          Voltar para Login
-        </a>
+        <Link to="/">
+          <p>
+            <FiArrowLeft />
+            Voltar
+          </p>
+        </Link>
       </Content>
     </Container>
   );

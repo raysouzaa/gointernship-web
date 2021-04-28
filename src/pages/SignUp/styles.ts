@@ -31,6 +31,16 @@ export const Content = styled.div`
 
   width: 100%;
   max-width: 700px;
+
+  h1 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: white;
+    margin-top: 10px;
+  }
 `;
 
 export const AnimationContainer = styled.div`
