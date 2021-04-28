@@ -11,7 +11,7 @@ import { Container, Content, Background } from './styles';
 const SignIn: React.FC = () => (
   <Container>
     <Content>
-      <img src={logoImg} alt="GoBarber" />
+      <img src={logoImg} alt="GoInternship" />
 
       <form>
         <h1>Faça seu login</h1>
